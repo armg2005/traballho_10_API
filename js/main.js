@@ -37,6 +37,47 @@ async function fetchAndDisplayUsers() {
         console.error('Falha ao buscar usuários:', error);
     }
 }
-fetchAndDisplayUsers()
+async function createUser(event) {
+    event.preventDefault(); 
+    const nome = document.getElementById('nome').value;
+    const job = document.getElementById('job').value;
+  
+    try {
+        const response = await fetch(`${API_BASE_URL}/users`, {
 
+            method: 'POST', 
+            
+            headers: {
+                'x-api-key': API_KEY, 
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify({ 
+                name: nome,
+                job: job
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status}`);
+        }
+        const data = await response.json();
+        alert(`Usuário "${data.name}" criado com sucesso! O ID novo é: ${data.id}`);
+        
+        document.getElementById('form-cadastro').reset();
+
+    } catch(error) {
+        console.error('Falha ao criar usuário:', error);
+        alert('Falha ao criar usuário. Verifique o console.');
+    }
+}
+
+const formCadastro = document.getElementById('form-cadastro');
+
+if (document.getElementById('usuarios')) {
+    fetchAndDisplayUsers();
+}
+
+if (document.getElementById('form-cadastro')) {
+    document.getElementById('form-cadastro').addEventListener('submit', createUser);
+}
 });

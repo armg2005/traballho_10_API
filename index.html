@@ -3,34 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciar Usuário</title>
+    <title>Lista de Usuários</title>
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
     <header>
-        <h1>Usuários da API</h1>
+        <h1>Consumo de API</h1>
         <nav>
-            <a href="index.html">Listar Usuários</a>
-            <a href="cadastro.html">Cadastrar Novo</a>
-            <a href="gerenciar.html" class="active">Gerenciar</a>
+            <a href="index.html" class="active">Listar (GET)</a>
+            <a href="cadastro.html">Cadastrar (POST)</a>
+            <a href="sobre.html">Sobre</a>
         </nav>
     </header>
-
     <main>
-        <h2>Atualizar ou Deletar Usuário</h2>
-        <form id="form-gerenciar">
-            <input type="number" id="user-id" placeholder="Digite o ID do usuário (ex: 2)" required>
-            <input type="text" id="nome-update" placeholder="Novo nome">
-            <input type="text" id="job-update" placeholder="Nova profissão">
-            
-            <div class="botoes-gerenciar">
-                <button type="button" id="btn-update">Atualizar (PUT)</button>
-                <button type="button" id="btn-delete">Deletar (DELETE)</button>
-            </div>
-        </form>
-         <div id="response-gerenciar" class="response-message">
+        <h2>Usuários da API</h2>
+        <div id="usuarios" class="user-container">
             </div>
     </main>
+
+    <template id="user-card-template">
+        <div class="user-card">
+            <img src="" alt="Avatar do usuário" class="user-avatar">
+            <h3 class="user-name">Nome Sobrenome</h3>
+            <p class="user-email">email@exemplo.com</p>
+        </div>
+    </template>
 
     <script src="js/main.js" defer></script>
 </body>

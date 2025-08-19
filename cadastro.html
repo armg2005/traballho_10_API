@@ -8,14 +8,13 @@
 </head>
 <body>
     <header>
-        <h1>Usuários da API</h1>
+        <h1>Consumo de API</h1>
         <nav>
-            <a href="index.html">Listar Usuários</a>
-            <a href="cadastro.html" class="active">Cadastrar Novo</a>
-            <a href="gerenciar.html">Gerenciar</a>
+            <a href="index.html">Listar (GET)</a>
+            <a href="cadastro.html" class="active">Cadastrar (POST)</a>
+            <a href="sobre.html">Sobre</a>
         </nav>
     </header>
-    
     <main>
         <h2>Cadastrar Novo Usuário</h2>
         <form id="form-cadastro">
@@ -23,8 +22,6 @@
             <input type="text" id="job" placeholder="Profissão do usuário" required>
             <button type="submit">Cadastrar</button>
         </form>
-        <div id="response" class="response-message">
-            </div>
     </main>
     
     <script src="js/main.js" defer></script>
